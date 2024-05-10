@@ -8,7 +8,7 @@ conda activate al4docking
 pip install -r requirements.txt
 ```
 ## Usage
-The general workflow is decribed by the chart below:
-<img src="workflow.jpg" alt="drawing" width="100"/>
+The overall workflow is decribed by the chart below: \
+<img src="workflow.png" alt="workflow" width="500"/>
 
 For more detailed information about running those scripts, please refer to the [`proj_template`](proj_template) directory.
