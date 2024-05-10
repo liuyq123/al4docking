@@ -1,0 +1,38 @@
+model: # Support GCN and GAT. Please refer to https://deepchem.readthedocs.io/en/latest/api_reference/models.html for more details about those models
+  name: gcn 
+  best_ckpt: ckpts/best/round1
+  restore: False
+  params: 
+    graph_conv_layers: [256, 256, 256, 256]
+    batchnorm: True 
+    dropout: 0.0
+    predictor_hidden_feats: 64
+    predictor_dropout: 0.1
+    batch_size: 1024
+    activation: F.relu
+    model_dir: ckpts/train/round1
+optimization:
+  learning_rate: 0.0005
+  scheduler: exponential 
+  warmup_steps: 1000 # When warmup_steps is not 0, the learning rate will be increased to the target value linearly from 0. Otherwise, only one scheduler will be used. 
+  scheduler_params:
+    decay_rate: 0.99
+    decay_steps: 200
+  early_stopping:
+    patience: 10
+    smoothing_factor: 0.8
+    initial_training: 20
+  n_epoch: 500
+data:
+  training:
+    - data/featurized/round1/fold1
+    - data/featurized/round1/fold2
+    - data/featurized/round1/fold3
+    - data/featurized/round1/fold4
+  validation: data/featurized/round1/fold5
+  normalize: False
+wandb:
+  project: ampc
+  group: round1
+  tags: gcn
+  

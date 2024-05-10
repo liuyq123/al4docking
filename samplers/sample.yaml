@@ -1,0 +1,17 @@
+sampler:
+  name: random
+  score_field: dockscore
+  params:
+    # uncertainty_field: std
+    # num_samples: 200000
+    frac_samples: 0.001
+data:
+  file_path: /lustre/fs6/lyu_lab/scratch/yliu03/Active-Learning-for-Docking/data/dock3/ampc/raw/unsplited/scored.csv
+  prev_samples_path: 
+  id_field: zincid
+  output_path: /lustre/fs6/lyu_lab/scratch/yliu03/Active-Learning-for-Docking/atp/leading/raw/random1.csv
+  sampling_cutoff: 
+spark_config:
+  spark.driver.memory: 160g
+  spark.executor.memory: 40g
+  spark.driver.maxResultSize: 16g
